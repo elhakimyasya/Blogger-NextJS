@@ -17,7 +17,7 @@ const Post = ({ posts }) => {
     return (
         <>
             <Head>
-                <title>ELC</title>
+                <title>EL Creative Academy</title>
             </Head>
             <div className="mx-auto max-w-3xl px-4 pt-20 xl:px-0 xl:pt-20">
                 {posts.map((post) => (
