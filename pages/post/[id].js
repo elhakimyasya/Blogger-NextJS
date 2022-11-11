@@ -43,7 +43,7 @@ const Post = ({ posts }) => {
                             Home
                         </Link>
                         <span className="mx-1">/</span>
-                        <span>{posts.labels}</span>
+                        <span>{posts.labels[0]}</span>
                     </div>
                     <h1 className="mb-2 w-full text-2xl font-bold text-slate-900 dark:text-slate-50">{posts.title}</h1>
                     <div className="mb-3 flex w-full flex-row items-start justify-center border-b pb-3 text-gray-600 dark:text-gray-200">
