@@ -31,10 +31,11 @@ export const getStaticProps = async (context) => {
 };
 
 const Post = ({ posts }) => {
+    const postTitle = posts.title + '| EL Creative Academy';
     return (
         <>
             <Head>
-                <title>{posts.title} | EL Creative Academy</title>
+                <title>{postTitle}</title>
             </Head>
             <div className="mx-auto max-w-3xl px-4 pt-20 xl:px-0 xl:pt-20">
                 <div className="flex w-full flex-col items-center justify-start ">

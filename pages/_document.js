@@ -10,7 +10,12 @@ class MyDocument extends Document {
 
     render = () => (
         <Html dir={this.props.locale === 'ar' ? 'rtl' : 'ltr'} lang={this.props.locale}>
-            <Head />
+            <Head>
+                <meta name="theme-color" content="#ffffff" />
+                <link rel="manifest" href="/manifest.json" />
+                <link href="/icons/32.png" rel="icon" type="image/png" sizes="32x32" />
+                <link rel="apple-touch-icon" href="/apple-icon.png" />
+            </Head>
             <body>
                 <Main />
                 <NextScript />

@@ -15,11 +15,12 @@ export const getStaticProps = async () => {
 };
 
 const Home = ({ posts }) => {
+    
     useEffect(() => {
         navigator.serviceWorker
             .register('/sw.js')
-            .then((registration) => console.log('Service Worker untuk Blogger Next by EL Creative Developer berhasil diregistrasi untuk scope: ', registration.scope))
-            .catch((err) => console.log('Gagal Menginstal Service Worker: ', err));
+            .then((registration) => console.log('SW Success: ', registration.scope))
+            .catch((err) => console.log('SW Failed: ', err));
     }, []);
 
     return (
@@ -33,13 +34,13 @@ const Home = ({ posts }) => {
                         <div className="flex w-full flex-row items-center justify-between">
                             <div className="w-full flex-col items-center justify-start ltr:mr-2 rtl:ml-2">
                                 <span className="mb-1 w-full text-sm font-medium text-gray-600 dark:text-gray-200">{post.category[0].term}</span>
-                                <Link className="mb-1 text-lg text-slate-900 hover:text-purple-900 dark:text-slate-50 dark:hover:text-purple-400" href={'/post/' + post.id.$t.replace(/.*?post-(.*?)/g, '$1')}>
+                                <Link className="mb-2 text-lg text-slate-900 hover:text-purple-900 dark:text-slate-50 dark:hover:text-purple-400" href={'/post/' + post.id.$t.replace(/.*?post-(.*?)/g, '$1')}>
                                     <h2 className="w-full font-bold">{post.title.$t}</h2>
                                 </Link>
                                 <div className="mb-1 text-sm text-gray-600 dark:text-gray-200">
                                     <span className="font-bold">{post.author[0].name.$t}</span> - <span className="text-sm">{post.published.$t}</span>
                                 </div>
-                                <span className="text-sm text-gray-600 line-clamp-2 dark:text-gray-200">{post.summary.$t}</span>
+                                <span className="hidden text-sm text-gray-600 dark:text-gray-200 xl:line-clamp-2">{post.summary.$t}</span>
                             </div>
                             <Link className="h-28 w-28" href={'/post/' + post.id.$t.replace(/.*?post-(.*?)/g, '$1')}>
                                 <Image src={post.media$thumbnail.url} width={112} height={112} alt={post.title.$t} className="rounded-md" />
@@ -56,5 +57,7 @@ const Home = ({ posts }) => {
         </>
     );
 };
+
+
 
 export default Home;
