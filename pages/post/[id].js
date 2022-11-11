@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const getStaticPaths = async () => {
-    const response = await fetch('https://www.elcreativeacademy.com/feeds/posts/summary?max-results=6&alt=json');
+    const response = await fetch('https://materiax.elcreativeacademy.com/feeds/posts/summary?max-results=6&alt=json');
     const data = await response.json();
 
     const paths = data.feed.entry.map((post) => {
@@ -20,7 +20,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
     const id = context.params.id;
-    const response = await fetch('https://www.googleapis.com/blogger/v3/blogs/4156644495655521536/posts/' + id + '?key=AIzaSyDwiv0JN7BQeuc6XEYLBf_uTHhYZNj-65I');
+    const response = await fetch('https://www.googleapis.com/blogger/v3/blogs/4906865668815412272/posts/' + id + '?key=AIzaSyDwiv0JN7BQeuc6XEYLBf_uTHhYZNj-65I');
     const data = await response.json();
 
     return {

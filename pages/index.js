@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useEffect } from 'react';
 
 export const getStaticProps = async () => {
-    const response = await fetch('https://www.elcreativeacademy.com/feeds/posts/summary?max-results=6&alt=json');
+    const response = await fetch('https://materiax.elcreativeacademy.com/feeds/posts/summary?max-results=6&alt=json');
     const data = await response.json();
 
     return {
