@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect } from 'react';
 
 export const getStaticProps = async () => {
     const response = await fetch('https://www.elcreativeacademy.com/feeds/posts/summary?max-results=6&alt=json');
@@ -14,6 +15,13 @@ export const getStaticProps = async () => {
 };
 
 const Home = ({ posts }) => {
+    useEffect(() => {
+        navigator.serviceWorker
+            .register('/sw.js')
+            .then((registration) => console.log('Service Worker untuk Blogger Next by EL Creative Developer berhasil diregistrasi untuk scope: ', registration.scope))
+            .catch((err) => console.log('Gagal Menginstal Service Worker: ', err));
+    }, []);
+
     return (
         <>
             <Head>
