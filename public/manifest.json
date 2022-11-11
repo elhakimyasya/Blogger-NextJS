@@ -3,7 +3,7 @@
     "short_name": "EL Creative Academy",
     "start_url": "/",
     "scope": "/",
-    "display": "fullscreen",
+    "display": "standalone",
     "orientation": "portrait",
     "background_color": "#ffffff",
     "theme_color": "#ffffff",
