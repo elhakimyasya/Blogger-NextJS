@@ -1,6 +1,7 @@
 import '../styles/globals.css';
 import Layout from '../components/Layout';
 import Head from 'next/head';
+import { Analytics } from '@vercel/analytics/react';
 
 const App = ({ Component, pageProps }) => {
     return (
@@ -14,6 +15,7 @@ const App = ({ Component, pageProps }) => {
             <Layout>
                 <Component {...pageProps} />
             </Layout>
+            <Analytics />
         </>
     );
 };
