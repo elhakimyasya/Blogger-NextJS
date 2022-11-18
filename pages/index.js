@@ -38,9 +38,9 @@ const Home = ({ posts }) => {
                                     <h2 className="w-full font-bold">{post.title.$t}</h2>
                                 </Link>
                                 <div className="mb-1 flex w-full flex-row items-center justify-start text-sm text-gray-600 dark:text-gray-200">
-                                    <span className="font-bold">{post.author[0].name.$t}</span>
-                                    <span className='mx-1'>•</span>
-                                    <time className="text-sm" dateTime="post.published.$t">
+                                    <span className="font-bold line-clamp-1">{post.author[0].name.$t}</span>
+                                    <span className="mx-1">•</span>
+                                    <time className="text-sm line-clamp-1" dateTime="post.published.$t">
                                         {formatDate(post.published.$t)}
                                     </time>
                                 </div>
