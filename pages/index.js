@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect } from 'react';
+import formatDate from '../lib/utils/formatDate';
 
 export const getStaticProps = async () => {
     const response = await fetch('https://materiax.elcreativeacademy.com/feeds/posts/summary?max-results=6&alt=json');
@@ -15,7 +16,6 @@ export const getStaticProps = async () => {
 };
 
 const Home = ({ posts }) => {
-    
     useEffect(() => {
         navigator.serviceWorker
             .register('/sw.js')
@@ -37,8 +37,12 @@ const Home = ({ posts }) => {
                                 <Link className="mb-2 text-lg text-slate-900 hover:text-purple-900 dark:text-slate-50 dark:hover:text-purple-400" href={'/post/' + post.id.$t.replace(/.*?post-(.*?)/g, '$1')}>
                                     <h2 className="w-full font-bold">{post.title.$t}</h2>
                                 </Link>
-                                <div className="mb-1 text-sm text-gray-600 dark:text-gray-200">
-                                    <span className="font-bold">{post.author[0].name.$t}</span> - <span className="text-sm">{post.published.$t}</span>
+                                <div className="mb-1 flex w-full flex-row items-center justify-start text-sm text-gray-600 dark:text-gray-200">
+                                    <span className="font-bold">{post.author[0].name.$t}</span>
+                                    <span className='mx-1'>•</span>
+                                    <time className="text-sm" dateTime="post.published.$t">
+                                        {formatDate(post.published.$t)}
+                                    </time>
                                 </div>
                                 <span className="hidden text-sm text-gray-600 dark:text-gray-200 xl:line-clamp-2">{post.summary.$t}</span>
                             </div>
@@ -57,7 +61,5 @@ const Home = ({ posts }) => {
         </>
     );
 };
-
-
 
 export default Home;

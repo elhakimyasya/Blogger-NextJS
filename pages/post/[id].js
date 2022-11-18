@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import formatDate from '../../lib/utils/formatDate';
 
 export const getStaticPaths = async () => {
     const response = await fetch('https://materiax.elcreativeacademy.com/feeds/posts/summary?max-results=6&alt=json');
@@ -51,7 +52,7 @@ const Post = ({ posts }) => {
                         <Image src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPzZlVciGeYVCgCEcfFKeNI8IhtFHNShFG_5Xavi8bej56zOpPRIjHEUZsTsLybpnEZkNJ6M-ivL0lcjLs9YEu_xVrD14a9gtcfxBAzIvwrmAY920GO9gkHtlljlwvRnLcRvD8WL5pbEcmgxCpct-7EJsMymUnpFCMxpTk8i0b0P7O82_kzKoEjeb3/w100/user-icon.webp" width={112} height={112} alt={posts.author.displayName} className="h-11 w-11 flex-shrink-0 flex-grow-0 rounded-full" />
                         <div className="flex w-full flex-col items-start justify-center text-sm ltr:ml-2 rtl:mr-2">
                             <span className="font-bold">{posts.author.displayName}</span>
-                            <span>{posts.published}</span>
+                            <time dateTime="posts.published">{formatDate(posts.published)}</time>
                         </div>
                     </div>
                     <div dangerouslySetInnerHTML={{ __html: posts.content }} className="prose:text-slate-900 dark:prose:text-slate-50 prose w-full" />

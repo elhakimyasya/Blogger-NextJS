@@ -16,7 +16,7 @@ class MyDocument extends Document {
                 <link href="/icons/32.png" rel="icon" type="image/png" sizes="32x32" />
                 <link rel="apple-touch-icon" href="/apple-icon.png" />
             </Head>
-            <body>
+            <body className=''>
                 <Main />
                 <NextScript />
             </body>
