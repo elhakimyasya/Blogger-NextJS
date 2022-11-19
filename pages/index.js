@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import formatDate from '../lib/utils/formatDate';
 
 export const getStaticProps = async () => {
-    const response = await fetch('https://materiax.elcreativeacademy.com/feeds/posts/summary?max-results=6&alt=json');
+    const response = await fetch('https://elcreative-matemagz.blogspot.com/feeds/posts/summary?max-results=6&alt=json');
     const data = await response.json();
 
     return {

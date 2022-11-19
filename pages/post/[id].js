@@ -4,7 +4,7 @@ import Link from 'next/link';
 import formatDate from '../../lib/utils/formatDate';
 
 export const getStaticPaths = async () => {
-    const response = await fetch('https://materiax.elcreativeacademy.com/feeds/posts/summary?max-results=6&alt=json');
+    const response = await fetch('https://elcreative-matemagz.blogspot.com/feeds/posts/summary?max-results=6&alt=json');
     const data = await response.json();
 
     const paths = data.feed.entry.map((post) => {
@@ -21,7 +21,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
     const id = context.params.id;
-    const response = await fetch('https://www.googleapis.com/blogger/v3/blogs/4906865668815412272/posts/' + id + '?key=AIzaSyDwiv0JN7BQeuc6XEYLBf_uTHhYZNj-65I');
+    const response = await fetch('https://www.googleapis.com/blogger/v3/blogs/8499930704346614137/posts/' + id + '?key=AIzaSyDwiv0JN7BQeuc6XEYLBf_uTHhYZNj-65I');
     const data = await response.json();
 
     return {
@@ -55,7 +55,7 @@ const Post = ({ posts }) => {
                             <time dateTime="posts.published">{formatDate(posts.published)}</time>
                         </div>
                     </div>
-                    <div dangerouslySetInnerHTML={{ __html: posts.content }} className="prose:text-slate-900 dark:prose:text-slate-50 prose w-full" />
+                    <div dangerouslySetInnerHTML={{ __html: posts.content }} className="prose:text-slate-900 dark:prose:text-slate-50 prose w-full min-w-full" />
                 </div>
             </div>
         </>
